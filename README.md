@@ -11,8 +11,6 @@ Deep-learning classifier for brain MRI images (glioma, meningioma, pituitary tum
 Deployed model: _fill_ (reason: _fill_).
 
 
-Deployed model: _fill_ (reason: _fill_).
-
 ## Data and an important caveat
 
 Dataset: Roboflow "Labeled MRI Brain Tumor Dataset v1" (CC BY 4.0), 2,443 images, 4 classes.
