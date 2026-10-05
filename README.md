@@ -6,10 +6,14 @@ Deep-learning classifier for brain MRI images (glioma, meningioma, pituitary tum
 
 ## Results (test split, no source-scan overlap with training)
 
-![Model Comparison Results](results.png)
+| Model | Accuracy | Macro-F1 | Tumor missed as no-tumor | Size (MB) |
+|---|---|---|---|---|
+| ResNet50V2 | 0.909 | 0.906 | 1.3% |
+| MobileNetV2 | 0.833 | 0.827 | 1.8% |
+| Custom CNN | 0.795 | 0.778 | 5.9% |
+| EfficientNetB0 | 0.754 | 0.742 | 0.5% |
 
 Deployed model: _fill_ (reason: _fill_).
-
 
 ## Data and an important caveat
 
