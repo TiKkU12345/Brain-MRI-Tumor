@@ -1,5 +1,7 @@
 # Brain Tumor MRI Image Classification
-**Love**- https://brainscan-ai.higgsfield.app/
+
+**Live demo:** https://brainscan-ai.higgsfield.app/
+
 Deep-learning classifier for brain MRI images (**glioma, meningioma, pituitary tumor, no tumor**): a custom CNN built from scratch, three ImageNet transfer-learning models (MobileNetV2, EfficientNetB0, ResNet50V2), and a Streamlit app for real-time predictions.
 
 > Educational project. **Not a medical device** - never use it for diagnosis or treatment decisions.
@@ -15,9 +17,9 @@ Deep-learning classifier for brain MRI images (**glioma, meningioma, pituitary t
 
 \* Training checkpoint size (includes optimizer state). The deployed `models/best_model.h5` was saved without it.
 
-**Deployed model: ResNet50V2** (`models/best_model.h5`). Reason: the highest accuracy and macro-F1 (about 7 macro-F1 points ahead of the next model), only 5 of 389 tumor images missed as "no tumor", and about 9 ms per image on a T4 GPU. EfficientNetB0 has a lower miss rate (0.5%) but only 75% accuracy, so it is not usable.
+**Deployed model: ResNet50V2** (`models/best_model.h5`). Reason: the highest accuracy and macro-F1 (about 8 macro-F1 points ahead of the next model), only 5 of 389 tumor images missed as "no tumor", and about 9 ms per image on a T4 GPU. EfficientNetB0 has a lower miss rate (0.5%) but only 75% accuracy, so it is not usable.
 
-Scores are from one test split and one training run; weaker models moved by 1-4 points between two full runs, so only the ResNet50V2 lead is clearly real. With 484 test images, ResNet50V2's accuracy has roughly +/- 2.5 points of uncertainty.
+The table shows the second of two full training runs, both on the same test split. Weaker models moved by 1-4 points between the two runs, so only the ResNet50V2 lead is clearly real. With 484 test images, ResNet50V2's accuracy has roughly +/- 2.5 points of uncertainty.
 
 ![Model comparison](results/07_model_comparison.png)
 
@@ -70,7 +72,7 @@ Brain-Tumor-MRI-Classification.ipynb   # EDA, leakage check, training, evaluatio
 app.py                                 # Streamlit app
 requirements.txt
 models/
-  best_model.h5                        # deployed ResNet50V2 (91 MB)
+  best_model.h5                        # deployed ResNet50V2 (95.7 MB)
   class_names.json
 results/                               # charts shown in this README
 ```
@@ -89,4 +91,4 @@ Upload an MRI image (JPG/PNG); the app shows the predicted class, the confidence
 - Small dataset (about 2.4k images) from a single public source; no external hospital validation.
 - Scan plane and brightness correlate with the class, so the model may partly rely on them instead of the tumor itself; real-world accuracy is likely lower than reported.
 - Confidence scores are not calibrated: the app can show very high confidence on images unlike the training data (for example other sequences or low-resolution images), even when it is wrong.
-- Single test split and a single run; small differences between the weaker models are within run-to-run noise.
+- Single test split; small differences between the weaker models are within run-to-run noise.
