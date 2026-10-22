@@ -1,6 +1,6 @@
 # Brain Tumor MRI Image Classification
 
-**Live demo:** https://brainscan-ai.higgsfield.app/
+**Live demo:** https://neuroscan-mri.higgsfield.app/
 
 Deep-learning classifier for brain MRI images (**glioma, meningioma, pituitary tumor, no tumor**): a custom CNN built from scratch, three ImageNet transfer-learning models (MobileNetV2, EfficientNetB0, ResNet50V2), and a Streamlit app for real-time predictions.
 
